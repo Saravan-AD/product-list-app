@@ -83,10 +83,10 @@ Future<void> _searchProducts(String query) async {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70), // Adjust the height as needed
+          preferredSize: Size.fromHeight(70), 
           child: AppBar(
-            backgroundColor: Colors.white, // Make AppBar background transparent
-            elevation: 0, // Remove the AppBar shadow
+            backgroundColor: Colors.white, 
+            elevation: 0, 
             flexibleSpace: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: SearchBar(
@@ -95,11 +95,11 @@ Future<void> _searchProducts(String query) async {
                 elevation: WidgetStatePropertyAll(2),
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50), // Elliptical shape
+                    borderRadius: BorderRadius.circular(50), 
                   ),
                 ),
                 hintText: 'Search products...',
-                leading: Icon(Icons.search), // Add search icon
+                leading: Icon(Icons.search), 
                 padding: WidgetStatePropertyAll(
                   EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                 ),
@@ -186,23 +186,17 @@ Future<void> _searchProducts(String query) async {
                     return Center(child: Text('No products available'));
                   }
 
-                  // Save all products for later use in search
                   _products = snapshot.data!;
 
-                  // If search results are available, show them, otherwise show all products
                   List<Product> displayedProducts = _filteredProducts.isEmpty
                       ? _products
                       : _filteredProducts;
 
-                  // Update isSelected based on wishlist status
                   for (var product in displayedProducts) {
                     product.inWishlist =
                         WishlistManager.isInWishlist(product.id);
                   }
 
-                  // final displayedProducts = snapshot.data!.take(6).toList();
-
-                  // Update isSelected based on wishlist status
                   for (var product in displayedProducts) {
                     product.inWishlist =
                         WishlistManager.isInWishlist(product.id);

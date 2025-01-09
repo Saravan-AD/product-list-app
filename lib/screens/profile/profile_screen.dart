@@ -21,7 +21,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _fetchProfileData() async {
     try {
-      // Retrieve token from SharedPreferences
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('jwt_token');
 
@@ -29,7 +28,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         throw Exception('No token found');
       }
 
-      // Fetch user data
       final response = await http.get(
         Uri.parse('https://admin.kushinirestaurant.com/api/user-data/'),
         headers: {'Authorization': 'Bearer $token'},

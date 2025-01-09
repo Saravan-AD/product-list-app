@@ -28,16 +28,14 @@ class _OtpScreenState extends State<OtpScreen> {
     }
 
     if (widget.userExists) {
-      // User exists, proceed to home
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Successful")));
       Navigator.pushAndRemoveUntil(
   context,
   MaterialPageRoute(builder: (context) => MainScreen()),
-  (route) => false, // This removes all previous routes
+  (route) => false, 
 );
     } else {
-      // User doesn't exist, prompt for name
       Navigator.push(
         context,
         MaterialPageRoute(

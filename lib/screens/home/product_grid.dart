@@ -114,7 +114,6 @@ class WishlistCard extends StatelessWidget {
               if (product.available)
                 TextButton(
                   onPressed: () {
-                    // Add to cart logic
                   },
                   child: Text('Add to Cart'),
                 ),

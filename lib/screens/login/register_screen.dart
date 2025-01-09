@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       Navigator.pushAndRemoveUntil(
   context,
   MaterialPageRoute(builder: (context) => MainScreen()),
-  (route) => false, // This removes all previous routes
+  (route) => false, 
 );
     } else {
       ScaffoldMessenger.of(context)
